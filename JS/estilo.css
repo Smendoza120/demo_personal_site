@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    color: purple;
+    padding: 20px 10px;
+}
+
+p{
+    padding: 0 10px;
+}
+
+ul{
+    margin: 20px 40px;
+}
+

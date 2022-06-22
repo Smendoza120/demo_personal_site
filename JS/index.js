@@ -1,0 +1,2 @@
+document.write('¡Hola JavaScripter!')
+
