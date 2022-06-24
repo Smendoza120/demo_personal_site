@@ -1,5 +1,19 @@
-let fullName = 'Harold Sanchez';
-let age = 24;
-let profesion = 'Tecnologo en topografia';
+let nombre = prompt('¿Cual es el nombre oficial de JavaScript?');
 
-console.log(`Soy ${fullName} y tengo ${age} años, soy ${profesion}.`);
+if(nombre === 'ECMAScript' || nombre === toUpperCase('ECMASCRIPT') || nombre === toLowerCase('ecmascript')){
+    alert('¡Correcto!')
+} else {
+    alert('¿No lo sabes? ¡ECMAScript!');
+}
+
+
+//Ternario
+// constante     condicional IF     resultados, primero (if), luego (else)
+const mensaje = (estatus === 200) ? 'OK' : 'ERROR';
+
+console.log(mensaje);
+
+if(NaN) alert('Hello')
+
+toUpperCase()
+toLowerCase()
