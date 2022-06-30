@@ -86,3 +86,15 @@ for (let index = 0; index < names.length; index++) {
 for( let name of names) {
     console.log(name);
 }
+
+//Funciones, se usan para guardar formulas y llamarlas en cualquier momento, esto ahorra tiempo y agiliza los procesos
+
+function nombre(var1, var2){
+    //Se escribe el codigo que queremos almacenar
+    if(var1 > var2){
+        return true;
+    }
+    return false;
+}
+//Para llamar una funcion la llamamos con el nombre y agregamos los valores
+nombre(1, 2);
