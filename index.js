@@ -1,19 +1,25 @@
-/*Un  programa que lea los ángulos de un triángulo y diga si no es un triángulo; si no, que diga qué tipo de triángulo es.*/
+let styles = ['Jazz', 'Blues']
 
-let angulo1 = parseInt(prompt('Escribe el primer angulo'));
-let angulo2 = parseInt(prompt('Escribe el segundo angulo'));
-let angulo3 = parseInt(prompt('Escribe el tercer angulo'));
+styles.push('Rock-n-Roll')
+console.log(styles)
 
-if(angulo1 + angulo2 + angulo3 === 180){
-    if(angulo1 === angulo2 && angulo1 === angulo3 && angulo2 === angulo1){
-        alert('Es un tiangulo Equilatero')
-    } 
-    else if(angulo1 == angulo2 && angulo1 !== angulo3 || angulo2 == angulo1 && angulo2 !== angulo3 || angulo3 == angulo1 && angulo3 !== angulo2 || angulo1 !== angulo2 && angulo1 === angulo3 || angulo2 !== angulo1 && angulo2 === angulo3 || angulo3 !== angulo1 && angulo3 === angulo2){
-        alert('Es un triangulo Isoceles');
-    } 
-    else if(angulo1 !== angulo2 && angulo1 !== angulo3 && angulo2 !== angulo1 && angulo2 !== angulo3 && angulo3 !== angulo1 && angulo3 !== angulo2){
-        alert('Es un tiangulo Escaleno')
-    }
-} else {
-    alert('No es un triangulo');
-}
+styles[1] = 'Classics';
+console.log(styles)
+
+styles.shift()
+styles.unshift('Rap', 'Reggae')
+console.log(styles)
+
+
+var array = ['pera', 'manzana', 'mango'] // de esta manera hacemos un arreglo
+
+array.push('durazno'); //Con este comando agregamos un dato mas al final del arreglo.
+array.pop() //Con este comando quitamos el ultimo dato del arreglo.
+array.unshift('Queso'); // Se usa para agregar un dato al inicio del arreglo
+array.shift(); //Con este comando quitamos el primer dato del arreglo. 
+
+console.log(array)
+
+array.splice(2);
+
+console.log(array)
