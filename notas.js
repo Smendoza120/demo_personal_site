@@ -150,4 +150,15 @@ const perfil1 = {
 }
 console.log(perfil1.nombre); //Para llamar un dato de nuestro objeto, agregamos el nombre del objeto y agregamos un punto
 
-//Uso del DOM
+//Uso del DOM se usan estos comandos para poder especificar tareas a cada parte de nuestro HTML y darle vida al proyecto
+    //Para poder usar un ID del DOM, usamos este comando.
+    document.getElementById(''); // Aqui llamamos al ID de nuestro HTML
+
+    //Para llamar a un HTML pero por clase usamos este comando.
+    document.getElementsByClassName('')
+
+    //Para llamar un tag como (div, header, ETC) usamos este comando.
+    document.getElementsByTagName('')
+
+    //Hay un comando universal que se llama a las clases o ID como si usaramos CSS.
+    document.querySelector('')
