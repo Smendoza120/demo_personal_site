@@ -149,3 +149,5 @@ const perfil1 = {
     }
 }
 console.log(perfil1.nombre); //Para llamar un dato de nuestro objeto, agregamos el nombre del objeto y agregamos un punto
+
+//Uso del DOM
