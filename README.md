@@ -1,1 +1,1 @@
-# Anotaciones de JS, es para principiantes
+# Anotaciones de JS, para principiantes
