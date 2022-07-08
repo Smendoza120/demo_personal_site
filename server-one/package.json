@@ -1,0 +1,22 @@
+{
+  "name": "server-demo",
+  "version": "1.0.0",
+  "description": "Es un servidor de ejemplo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "node",
+    "demo",
+    "harold"
+  ],
+  "author": "harold sanchez <sanchezharold13@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
