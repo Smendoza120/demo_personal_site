@@ -1,0 +1,7 @@
+Para crear un archivo .json, entramos a la carpeta donde tenemos nuestro proyecto.
+
+Iniciar un proyecto
+    Agregamos el comando npm init, de esta manera se inicia el proyecto y nos hara unas preguntas, las cuales respondemos.
+
+Ignorar un archivo para subir a git.
+    Para ignorar un archivo, agregamos un nuevo archivo con el siguiente nombre .gitignore, dentro del archivo agregamos el nombre del archivo o carpeta que no queremos que suba a nuestro repositorio.
