@@ -1,6 +1,7 @@
 const fs = require('fs');
+const file = process.argv[2];
 
-const contents = fs.readFileSync(process.argv[2]);
-const lines = contents.toString().split('\n').length - 1;
-console.log(lines);
+const op = fs.readFileSync(file);
+const solcuion = op.toString().split('\n').length - 1;
 
+console.log(solcuion);

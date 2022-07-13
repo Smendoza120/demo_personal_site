@@ -4,12 +4,14 @@
 // Con el comando (process) podemos acceder a los argumentos de la linea de comandos
 
 // Con la propiedad (.argv) nos despliega una cadena con toda la informacion del comando. 
-let suma = 0
-let nude = process.argv.length; 
 
-for(let i = 2; i < nude; i++) {
-    const val = Number(process.argv[i]);
-    suma += val
+let suma = 0;
+let file = process.argv.length;
+
+for(let i = 2; i < file; i++) {
+    let result = parseInt(process.argv[i]);
+    suma += result;
 }
 
 console.log(suma);
+
