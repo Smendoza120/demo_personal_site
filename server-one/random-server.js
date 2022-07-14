@@ -13,7 +13,7 @@ const app = http.createServer((req, response) => {
 
     //Llamamos a la funcion del otro documento.
     //We call the function of the other file.
-    const result = getData();
+    const result = getData.winner();
     response.end(JSON.stringify(result));
 })
 
