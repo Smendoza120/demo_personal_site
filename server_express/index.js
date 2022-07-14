@@ -1,12 +1,15 @@
 const express = require('express');
-const data = require('./random');
+const datos = require('./usuarios.json');
+const app = express()
 const PORT = 8080;
-const app = express();
 
-app.get('/', (req, res ) =>{
-    res.send('Que mas jhoan')
+app.get('/', (req, res) => {
+    res.json('Esto es un servidor')
 })
 
-app.listen(PORT, () => {
-    console.log(`Servidor en el puerto ${PORT}`)
-});
+app.get('/filtro', (req, res) =>{
+    const filtro = datos.filter((fill) => fill.gender === 'female')
+    res.json(filtro)
+})
+
+app.listen(PORT)
