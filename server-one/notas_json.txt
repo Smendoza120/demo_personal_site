@@ -1,7 +1,13 @@
 Para crear un archivo .json, entramos a la carpeta donde tenemos nuestro proyecto.
 
 Iniciar un proyecto
-    Agregamos el comando npm init, de esta manera se inicia el proyecto y nos hara unas preguntas, las cuales respondemos.
+    Agregamos el comando npm init, de esta manera se inicia el proyecto y nos hara unas preguntas, las cuales respondemos, una vez respondamos ello, nos dejara un archivo JSON.
+
+Extencion nodemon.
+    Esta extencion se usa para ahorrar trabajo en prender y apagar el servidor cuando hacemos algun cambio, la aplicacion refresca nuestro servidor.
+
+Crear una ruta de desarrollo.
+    Para crear la ruta de desarrollo, ingresamos en el archivo JSON, y en los scripts, agregamos otro objeto con un numbre personalizado, por ejemplo 'dev' y se agrega como ruta nodemon y el archivo que queremos iniciar en el servidor.
 
 Ignorar un archivo para subir a git.
     Para ignorar un archivo, agregamos un nuevo archivo con el siguiente nombre .gitignore, dentro del archivo agregamos el nombre del archivo o carpeta que no queremos que suba a nuestro repositorio.
