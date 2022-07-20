@@ -1,15 +1,16 @@
 const express = require('express');
-const datos = require('./usuarios.json');
-const app = express()
+const data = require('./usuarios.json');
+
+const app = express();
 const PORT = 8080;
 
 app.get('/', (req, res) => {
-    res.json('Esto es un servidor')
+    res.json('Esto es un servidor.')
 })
 
-app.get('/filtro', (req, res) =>{
-    const filtro = datos.filter((fill) => fill.gender === 'female')
+app.get('/json', (req, res) => {
+    const filtro = data.filter((fill) => fill.name === 'Greene Whitaker')
     res.json(filtro)
 })
 
-app.listen(PORT)
+app.listen(PORT, () => `Esto funciona en el puerto ${PORT}`)
