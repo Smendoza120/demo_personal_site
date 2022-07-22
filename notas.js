@@ -62,6 +62,11 @@ nombre + apellido // HaroldSanchez
     array.unshift('Uvas'); // Se usa para agregar un dato al inicio del arreglo
     array.shift(); //Con este comando quitamos el primer dato del arreglo. 
 
+//*Matriz
+    //*Se le llama matriz a un conjunto de arrays o arreglos.
+    //*Aqui tenemos un arreglo con arreglos dentro.
+    var frutas = ['Mango', 'Pera', ['Uva', 'Pasas'], 'Manzana'];
+
 //*Bucles
     //*tenemos 3 tipos de bucles, tenemos el while, for y for of.
 
@@ -269,7 +274,100 @@ console.log(perfil1.nombre); //Para llamar un dato de nuestro objeto, agregamos 
     *          res.end('Nuevo archivo')
     *       })
     *   Primero llamamos a la app luego usamos la funcion get, dentro de esta funcion agregamos la ruta que deseamos, luego agregamos un callback (funcion de flecha () => {}), similar al ejemplo anterior, en el primero nos imprimira un (hola mundo), en la otra ruta nos imprimira (nuevo archivo).
+    * 
     */
+
+//*Arquitectura de sofware REST
+/*
+*   Esto se comunica a traves de solicitudes HTTP para realizar funciones estandar de base de datos.
+
+*      /api/task/     POST             201         CREATE   Crear una tarea.
+*      /api/task/     GET              200         READ     Leer todas las tareas.
+*      /api/task/:id  GET              200         READ     Leer una tarea.
+*      /api/task/:id  PUT / PATCH      200         UPDATE   Actualizar la informacion de una tarea.
+*      /api/task/:id  DELETE           200(o 204)  UPDATE   Eliminar una tarea.
+*/
+
+/*
+//*GET
+*   Con la explicacion anterior, queremos mostrar una unica nota, entonces para eso realizamos el mismo procedimiento de crear una ruta, pero le agregamos un (/) y agregamos (:id), adicional a ello usaremos el requerimiento, ya que anteriormente no lo habiamos usado.
+*
+*       app.get('/api/notes/:id', (req, res) =>{
+*           console.log(req.params)
+*       })
+*
+*   Explicando mejor el codigo, llamamos a la app, luego agregamos el metodo (get) que se usa para leer el archivo, como primer parametro agregamos la ruta donde se encontrara la informacion y adicionamos lo de la explicacion anterior (/:id), despues de ello, realizamos un callback y llamamos al requerimiento (req) con el metodo params.
+*
+*   Este codigo presenta un error, lo que pasa es que si en la URL, agregamos datos distintos a los objetos que tenemos, nos sigue arrojando un codigo de aceptado, osea un 202, pero lo que queremos es le informa al usuario si la pagina que esta buscando no existe, para eso tiene que enviarle un error (404), para arreglar ello hacemos lo siguiente.
+*
+*        app.get('/api/notes/:id', (req, res) =>{
+*            const { id } = req.params
+*            const note = notes.find(file => file.id === Number(id));
+*
+*            if(note) {
+*                res.json(note)
+*            } else {
+*                res.status(404).end()
+*            }
+*        })
+*
+*   Explicaremos a detalle que pasa en este codigo, ya vimos la primera parte de como agregar la ruta correcta, ahora agregaremos la  busqueda del objeto por el (ID) en este caso. 
+*
+*   Para ello agregamos una cosntante y agregamos los simbolos de objeto junto con la palabra clave a buscar en este caso id ({ id }), llamamos al requerimiento y le pasamos el metodo params.
+*
+*   Luego haremos la siguiente formula, creamos una constante con el nombre que deseemos, luego llamamos a la lista donde se encuentran nuestros objetos y le pasamos el metodo (find), para buscar los elementos dentro del array o cadena, y realizamos un callback para decirle que si el callback es igual a id nos lo retorne (no olvides pasar el valor a number si es necesario).
+*
+*   Ahora para hacer que la pagina le muestre al usuario si en efecto existe lo que esta buscando en la URL o no existe, realizamos una condicional if, que nos diga que si existe la pagina muestrela, de lo contrario mande un error 404.
+*
+*   Explicaremos el metodo if, le pasamos el nombre de la constante creada anteriormente como parametro, si esta imprima con (res.json(parametro)), de lo contrario, llamamos a res y le pasamos la funcion status y le agregamos el codigo que seria 404 luego de ello le pasamos la funcion end para que termine de ejecutar el codigo (res.status(404).end()).
+*/
+
+//*DELETE
+/*
+*   Se usa para omitir uno de los objetos que queremos.
+
+*        app.delete('/api/notes/:id', (req, res) => {
+*            const { id } = req.params
+*            const resultNote = notes.filter(item => item.id !== Number(id)) 
+*
+*            res.status(204).end();
+*        })
+*
+*   Ahora usamos la siguiente formula, llamamos a la app, pero en vez de (get), usaremos (delete), lo demas sigue igual, dentro de la callback, llamamos al id o parametro que queremos omitir, llamamos al requerimiento y le damos el metodo params (req.params).
+*
+*   Luego creamos una constante con el nombre que deseemos y luego llamamos a los objetos y lo filtramos dentro de una callback, y en vez de que sean iguales al id, que sean diferentes.
+*
+*   Al final llamamos a res y agregamos el estado, en este caso seria el estado 204 y tambien agregamos la funcion end, (res.status(204).end()) 
+*/
+
+//*POST
+/*
+*   Para el post, necesitamos una herramienta se llama postman, en esta herramienta, agregamos la ruta y le damos la opcion a post, luego de ello, lo ponemos en la opcion (raw), con el parametro (json), nos dejara una consola y podemos agregar informacion, en este apartado, agregaremos un array mas.
+*
+*   Antes de ejecutar la aplicacion, tenemos que programar el sitio para poder hacer el post.
+*
+*        app.use(express.json());
+*
+*   Llamamos a la applicacion y le pasamos la funcion use, dentro de ella llamamos a express y le agregamos el metodo json, app.use(express.json());
+*
+*   Ahora tenemos que programar el apartado para que nos muestre lo que hicimos en el aplicativo postman.
+*
+*       app.post('/api/notes/', (req, res) => {
+*           const newNote = req.body;
+*    
+*           const resultNotes = notes.concat(newNote)
+*           console.log(resultNotes)
+*           res.status(201).json(newNote)
+*           })
+*
+*   Llamamos a la aplicacion y le agregamos la funcion post, le agregamos la ruta, en este apartado omitiremos el (:id), luego haremos la misma callback, despues creamos una constante con el nombre deseado y llamamos al requerimiento y le pasamos el metodo body (const newNote = req.body), con el fin de que lo que hicimos se muestre en dicho lugar.
+*
+*   Crearemos otra constante con el nombre deseado, llamamos la lista de objetos que en este caso es notes y la concatenaremos con la constante creada anteriormente (const resultNotes = notes.concat(newNote)), luego llamamos esta funcion en consola, para poder visualizarla.
+*
+*   Ahora le daremos el estatus a lo que creamos, en este caso llamamos a res y creamos el estado en 201 luego le pasamos la funcion json y agregamos la primera constante creada en este apartado (res.status(201).json(newNote)).
+*
+*   Despues de hacer todo ello, si ejecutamos la aplicacion y si recargamos la pagina en la consola nos mostraria el contenido que agregamos en el aplicativo.
+*/
 
 //*DOM
     //*Uso del DOM se usan estos comandos para poder especificar tareas a cada parte de nuestro HTML y darle vida al proyecto
